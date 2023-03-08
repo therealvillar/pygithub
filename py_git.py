@@ -67,7 +67,7 @@ def switch_branch(branch_name):
 import os
 import subprocess
 
-create_requirements_file("requirements.txt")
+
 def create_requirements_file(requirements_file_path):
     """
     Generates a requirements.txt file containing the list of installed packages using pip freeze.
@@ -77,7 +77,7 @@ def create_requirements_file(requirements_file_path):
     result = subprocess.run(command, shell=True)
     return result.returncode == 0
 
-generate_gitignore_file(".gitignore", files_to_ignore=["*.log"], dirs_to_ignore=["tmp"])
+
 def generate_gitignore_file(gitignore_file_path, files_to_ignore=None, dirs_to_ignore=None):
     """
     Generates a .gitignore file containing the list of files and directories to ignore in Git.
@@ -93,31 +93,3 @@ def generate_gitignore_file(gitignore_file_path, files_to_ignore=None, dirs_to_i
     return True
 
 
-
-
-Sure! Here are the steps to create a configuration file for venv that includes the Git scripts in every environment that gets created:
-
-    Create a new virtual environment using venv: Open a terminal or command prompt and navigate to your project directory. Then, create a new virtual environment using venv by running the command "python -m venv env".
-
-    Activate the virtual environment: Activate the virtual environment using the activation script for your operating system. For example, on Windows, run the command "env\Scripts\activate.bat".
-
-    Install Git: Install Git on your system if it is not already installed.
-
-    Create a new file named "postactivate" in the "env\Scripts" directory of your virtual environment.
-
-    Add the following lines of code to the "postactivate" file:
-
-    bash
-
-    # Add Git scripts to PATH
-    export PATH="$PATH:/path/to/git/scripts/directory"
-
-    Replace "/path/to/git/scripts/directory" with the path to the directory containing your Git scripts.
-
-    Save and close the "postactivate" file.
-
-    Deactivate and reactivate the virtual environment: Deactivate the virtual environment by running the "deactivate" command in the terminal or command prompt. Then, reactivate the virtual environment using the activation script.
-
-Now, whenever you create a new virtual environment using venv and activate it, the "postactivate" script will automatically add the Git scripts to the PATH, making them available in every environment that gets created.
-
-Note: The "postactivate" script is only executed when the virtual environment is activated, so you will need to reactivate the virtual environment after modifying the script for the changes to take effect.
