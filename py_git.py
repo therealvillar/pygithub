@@ -1,4 +1,6 @@
 import subprocess
+import os
+
 
 def clone_repository(repo_url, destination_folder):
     """
@@ -63,9 +65,6 @@ def switch_branch(branch_name):
     result = subprocess.run(command, shell=True)
     return result.returncode == 0
 
-
-import os
-import subprocess
 
 
 def create_requirements_file(requirements_file_path):
